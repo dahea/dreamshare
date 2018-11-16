@@ -1,0 +1,124 @@
+.hero {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: $black;
+	margin-bottom: $spacing-lg;
+	color: $white;
+
+	&::before, &::after {
+		@include pseudo-mask;
+	}
+
+	&::before {
+		z-index: 2;
+		opacity: 0.6;
+		@include full-image-background;
+		background-image: url(./assets/hero/banner-sm.png);
+	}
+
+	&::after {
+		z-index: 1;
+		opacity: 0.1;
+		// TODO: make colors variables in global?
+		background: linear-gradient(0deg, #FF4E50 0%, #F9D423 100%);
+	}
+
+	.inset {
+		z-index: 3;
+		position: relative;
+		display: grid;
+		height: 100%;
+		grid-template-rows: 2.25fr .5fr 5fr;
+		padding-top: $spacing-sm;
+	}
+
+	nav {
+    @include montesserat;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    order: -1;
+
+		a {
+			color: $white;
+			text-decoration: none;
+			margin: 0 $spacing-sm;
+
+			&:hover {
+				color: $peach;
+			}
+		}
+	}
+
+	.branding {
+			@include montesserat;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: $logo-lg;
+			text-align: center;
+	}
+
+	.title-lg-white {
+		font-size: $font-xxl;
+		text-transform: uppercase;
+	}
+
+	p {
+		color: $text-hero;
+		font-size: $font-md;
+		text-align: center;
+		margin-bottom: $spacing-md;
+	}
+
+	@include tablet {
+		height: 100vw;
+		margin-bottom: $spacing-xxl;
+
+		&::before {
+			background-image: url(./assets/hero/banner-lg.png);
+		}
+
+		.inset {
+			grid-template-columns: 1fr 2fr 1fr;
+			grid-template-rows: .75fr 2fr;
+			padding-top: $spacing-xl;
+			margin: 0 $spacing-xl $spacing-xxl;
+		}
+
+		nav {
+			order: 0;
+			grid-column: 3;
+		}
+
+		.intro {
+			grid-column: 1 / -1;
+			max-width: 500px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.title-lg-white {
+			font-size: $font-xxxl;
+		}
+		p {
+			font-size: $font-xl;
+			margin-bottom: $spacing-lg;
+		}
+
+		.btn-main {
+			display: inline-block;
+			margin: 0 auto;
+			padding: 0 $spacing-md;
+		}
+	}
+
+	@include desktop {
+		height: 85vh;
+		@include desktop-inset;
+		.inset {
+			margin: 0 auto;
+		}
+	}
+
+}

@@ -1,0 +1,36 @@
+.search {
+	text-align: center;
+
+	p {
+		font-size: $font-md;
+		margin-bottom: $spacing-md;
+	}
+	 input {
+		margin-bottom: $spacing-sm;
+	 }
+
+	 .btn-main {
+	 	width: 100%;
+	 }
+
+	 @include tablet {
+	 	margin-bottom: $spacing-xxxl;
+	 	
+	 	.title-lg {
+	 		margin-bottom: $spacing-lg;
+	 	}
+
+	 	input {
+	 		width: 300px;
+	 		margin-right: $spacing-smd;
+	 		margin-bottom: 0;
+	 	}
+
+	 	.btn-main {
+	 		display: inline-block;
+	 		padding: 0 $spacing-lg;
+	 		width: auto;
+	 	}
+	 }
+	
+}

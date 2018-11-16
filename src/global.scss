@@ -1,0 +1,200 @@
+* {
+    transition: all ease 0.3s;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	color: $text;
+	font-size: $font-sm;
+}
+
+// Mixins
+@mixin round {
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+@mixin montesserat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@mixin pseudo-mask() {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		border-radius: $border-radius-xs;
+}
+
+@mixin full-image-background {
+	background: no-repeat center;
+	background-size: cover;
+
+	&.top {
+		background-position: top center
+	}
+
+	&.bottom {
+		background-position: bottom center
+	}
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin desktop-inset {
+	.inset {
+		width: 100%;
+		max-width: 940px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Extended styles
+a.btn,
+.btn,
+%btn {
+    @include montesserat;
+    display: block;
+    text-decoration: none;
+    border-radius: $border-radius-lg;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 700;
+}
+
+.btn-main {
+    @extend %btn;
+    background-color: $peach;
+    color: white;
+}
+
+a, button {
+	&.btn-main {
+		&:hover {
+    	background: darken($peach, 4);
+    }
+	}
+}
+
+.btn-invert {
+    @extend %btn;
+    background-color: $white;
+    color: $peach;
+    border: 2px solid $peach;
+}
+
+a, button {
+	&.btn-invert {
+		&:hover {
+    	background: lighten($peach, 30);
+    }
+	}
+}
+
+.btn-sm {
+    @extend %btn;
+    display: inline-block;
+    background-color: $peach;
+    color: white;
+    font-size: $font-xs;
+    line-height: 20px;
+    padding: 0 $spacing-sm;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+a, button {
+	&.btn-sm {
+		&:hover {
+    	background: darken($peach, 4);
+    }
+	}
+}
+
+
+.btn-invert-white-sm {
+    @extend %btn;
+    font-weight: 300;
+    color: $white;
+    border: 2px solid $white;
+    line-height: 36px;
+    padding: 0 $spacing-sm;
+}
+a, button {
+	&.btn-invert-white-sm {
+		&:hover {
+    	border-color: $peach;
+    	color: $peach;
+    }
+	}
+}
+
+
+
+.title,
+%title {
+  @include montesserat;
+	font-weight: 700;
+	color: $black;
+	line-height: 1.25;
+	margin-bottom: $spacing-smd;
+	text-align: center;
+}
+
+.title-lg {
+	@extend %title;
+	font-size: $font-lg;
+}
+
+.title-lg-white {
+	@extend %title;
+	font-size: $font-lg;
+	color: $white;
+}
+
+
+// Global styles
+.inset {
+	margin: 0 $spacing-md $spacing-lg;
+}
+
+input {
+	height: 40px;
+	width: 100%;
+	padding: 0 15px;
+	border: 1px solid #D4D4D4;
+	border-radius: 3px;
+	background-color: $white;
+
+	&::placeholder {
+		color: $text-light;
+	}
+}
+
+button {
+	border: none;
+}
+
+a, button {
+	cursor: pointer;
+}

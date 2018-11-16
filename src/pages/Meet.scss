@@ -1,0 +1,85 @@
+.meet {
+	text-align: center;
+
+	.partner {
+		$avatar-size: 122px;
+		$detail-size: 32px;
+
+		margin-bottom: $spacing-md;
+
+		.avatar-wrapper {
+			position: relative;
+			width: $avatar-size;
+			height: $avatar-size;
+			margin: 0 auto $spacing-smd;
+		}
+
+		.avatar {
+			width: $avatar-size;
+			height: $avatar-size;
+			@include round;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.avatar-detail {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: $detail-size;
+			height: $detail-size;
+			border: 3px solid $white;
+			@include round;
+
+			&.peach {background: $peach;}
+			&.yellow {background: $yellow}
+			&.teal {background: $teal}
+			&.blue {background: $blue}
+		}
+	}
+
+	@include tablet {
+		margin-bottom: $spacing-xxl;
+		.title-lg {
+			margin-bottom: $spacing-lg;
+		}
+
+		.partners-wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-column-gap: $spacing-sm;
+			grid-row-gap: $spacing-lg;
+			max-width: 500px;
+			margin: 0 auto $spacing-lg;
+		}
+
+		.partner {
+			width: 240px;
+			margin-bottom: 0;
+		}
+
+		.btn-invert {
+			margin-bottom: 0 auto;
+			display: inline-block;
+    	padding: 0 $spacing-md;
+		}
+	}
+
+	@include desktop {
+		@include desktop-inset;
+
+		.partners-wrapper {
+			width: 100%;
+			max-width: 0;
+			grid-template-columns: repeat(4, 1fr);
+			margin: 0 0 $spacing-lg;
+		}
+	}
+	
+}

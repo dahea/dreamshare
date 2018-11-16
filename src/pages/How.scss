@@ -1,0 +1,75 @@
+.how {
+
+	.inset {
+		margin: 0 $spacing-sm $spacing-lg;
+	}
+
+	.steps-wrapper {
+		text-align: left;
+	}
+
+	.step {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		height: 240px;
+		padding: $spacing-md;
+		margin-bottom: $spacing-sm;
+		border-radius: 4px;
+		@include full-image-background;
+
+		&.step1 {background-image: url(./assets/how/step1.png);}
+		&.step2 {background-image: url(./assets/how/step2.png);}
+		&.step3 {background-image: url(./assets/how/step3.png);}
+
+		&::after {
+			@include pseudo-mask;
+			z-index: 0;
+			opacity: 0.6;
+			background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+		}
+
+		div {
+			z-index: 1;
+		}
+
+		.title-lg-white {
+			text-align: left;
+		}
+
+		.desc {
+			color: $text-off-white;
+		}
+
+		.btn-sm {
+			margin-bottom: $spacing-sm;
+		}
+	}
+
+	@include tablet {
+		.inset {
+			margin-bottom: $spacing-xxl;
+		}
+
+		.title-lg {
+			margin-bottom: $spacing-lg;
+		}
+
+		.steps-wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: $spacing-sm;
+		}
+
+		.step {
+			height: 380px;
+		}
+	}
+
+	@include desktop {
+		@include desktop-inset;
+	}
+	
+}

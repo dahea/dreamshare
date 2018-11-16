@@ -1,0 +1,87 @@
+.discover {
+
+	.inset {
+		margin: 0 $spacing-sm $spacing-lg;
+	}
+
+	.tiles-wrapper {
+		display: grid;
+		grid-row-gap: $spacing-sm;
+	}
+
+	.tile {
+		position: relative;
+		z-index: 1;
+		height: 120px;
+		border-radius: 4px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include full-image-background;
+
+		&.sports {
+			background-image: url(./assets/discover/sports.png);
+			background-position: bottom center;
+		}
+
+		&.wellness {
+			background-image: url(./assets/discover/wellness.png)
+		}
+
+		&.extreme {
+			background-image: url(./assets/discover/extreme.png)
+		}
+
+		&.games {
+			background-image: url(./assets/discover/games.png)
+		}
+
+		&.culture {
+			background-image: url(./assets/discover/culture.png)
+		}
+
+		&.enjoyment {
+			background-image: url(./assets/discover/enjoyment.png)
+		}
+
+		&.travel {
+			background-image: url(./assets/discover/travel.png);
+			background-position: top center;
+		}
+
+		&::after {
+			@include pseudo-mask;
+			opacity: 0.2;
+			background-color: #000000;
+		}
+
+		.title-lg-white {
+			margin-bottom: 0;
+		}
+	}
+
+	@include tablet {
+		margin-bottom: $spacing-xxl;
+
+		.title-lg {
+			margin-bottom: $spacing-lg;
+		}
+
+		.tiles-wrapper {
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: $spacing-md;
+		}
+
+		.tile {
+			height: 310px;
+
+			&.culture, &.enjoyment {
+				grid-column: span 2
+			}
+		}
+	}
+
+	@include desktop {
+		@include desktop-inset;
+	}
+}
