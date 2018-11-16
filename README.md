@@ -4,7 +4,7 @@ To view online:
 http://www.dahea.rocks/atdev/dreamshare
 
 To run on your local machine:  
-1) `git clone https://dahea@bitbucket.org/dahea/dreamshare.git `  
+1) `git clone https://github.com/dahea/dreamshare.git `  
 2) `cd dreamshare `  
 3) `yarn`  
 4) `yarn start`
